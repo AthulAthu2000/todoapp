@@ -33,7 +33,7 @@ class _SigninPageState extends State<SigninPage> {
             children: [
               Text(
                 "Sign up",
-                style: AppTextStyles.contentstyle,
+                style: AppTextStyles.contentstyle.copyWith(letterSpacing: 1),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 30),

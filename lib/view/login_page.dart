@@ -25,12 +25,12 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               "Login",
-              style: AppTextStyles.contentstyle,
+              style: AppTextStyles.contentstyle.copyWith(letterSpacing: 1),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: AppSize.height(context) * 0.03),
+            SizedBox(height: 30),
             CustomTextField(
               controller: _usernameController,
               label: 'Email',
@@ -78,7 +78,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     );
                   },
-                  child: Text("SignIn"),
+                  child: Text(
+                    "SignIn",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             ),

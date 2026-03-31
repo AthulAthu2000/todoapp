@@ -26,7 +26,13 @@ class _TodoViewState extends ConsumerState<TodoView> {
     final todos = ref.watch(todoViewModelProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Todo App',), centerTitle: true),
+      appBar: AppBar(
+        title: const Text(
+          'TODO APP',
+          style: TextStyle(fontWeight: FontWeight.w600, letterSpacing: 1),
+        ),
+        centerTitle: true,
+      ),
       body: todos.isEmpty
           ? const Center(child: Text('No tasks yet. Add one!'))
           : ListView.builder(
@@ -35,12 +41,14 @@ class _TodoViewState extends ConsumerState<TodoView> {
               itemBuilder: (context, index) {
                 final todo = todos[index];
                 return Card(
-                  color: AppColors.filledcolor,
-                  margin: const EdgeInsets.only(bottom: 8),
+                  color: Colors.grey.shade300,
+                  margin: const EdgeInsets.only(bottom: 10),
                   child: ListTile(
                     title: Text(
                       todo.title,
                       style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 1,
                         decoration: todo.isCompleted
                             ? TextDecoration.lineThrough
                             : null,
@@ -70,7 +78,14 @@ class _TodoViewState extends ConsumerState<TodoView> {
       context: context,
       builder: (context) => AlertDialog(
         backgroundColor: AppColors.white,
-        title: Text('Add Task'),
+        title: Text(
+          'Add Task',
+          style: TextStyle(
+            color: AppColors.black,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 1,
+          ),
+        ),
         content: TextField(
           controller: _controller,
           autofocus: true,
@@ -93,11 +108,6 @@ class _TodoViewState extends ConsumerState<TodoView> {
             ),
           ),
         ),
-        // TextField(
-        //   controller: _controller,
-        // autofocus: true,
-        // decoration: const InputDecoration(hintText: 'Enter task title'),
-        // ),
         actions: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(
