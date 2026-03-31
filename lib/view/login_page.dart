@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:techyspot/view/signin_page.dart';
 import 'package:techyspot/view/todo_view.dart';
 import 'package:techyspot/view/constants/colors.dart';
 import 'package:techyspot/view/constants/measursement.dart';
@@ -32,15 +33,16 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(height: AppSize.height(context) * 0.03),
             CustomTextField(
               controller: _usernameController,
-              labelText: "Email",
-              hintText: "Enter your Email",
+              label: 'Email',
+              icon: Icons.email,
             ),
-            SizedBox(height: AppSize.height(context) * 0.01),
+            SizedBox(height: 16),
             CustomTextField(
               controller: _passwordController,
-              labelText: "Password",
-              hintText: "Enter your Password",
+
               obscureText: true,
+              label: 'Password',
+              icon: Icons.lock,
             ),
             SizedBox(height: AppSize.height(context) * 0.05),
             ElevatedButton(
@@ -59,11 +61,26 @@ class _LoginPageState extends State<LoginPage> {
               ),
               child: const Text('Login', style: AppTextStyles.mainButtonstyle),
             ),
-            SizedBox(height: AppSize.height(context) * 0.02),
-            const Text(
-              "By creating or logging into an account you are agreeing with our Terms and Conditions & Privacy Policy.",
-              style: AppTextStyles.hintstyle,
-              textAlign: TextAlign.center,
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Don't have an account?",
+                  style: AppTextStyles.hintstyle,
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SigninPage(),
+                      ),
+                    );
+                  },
+                  child: Text("SignIn"),
+                ),
+              ],
             ),
           ],
         ),
